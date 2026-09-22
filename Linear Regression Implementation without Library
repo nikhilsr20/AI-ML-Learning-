@@ -1,0 +1,27 @@
+
+import numpy as np
+
+a = np.array([1, 2, 3, 4, 5])
+b = np.array([2, 4, 6, 8, 10])
+
+l = 0.009
+n = len(a)
+
+m = 0
+c = 0
+
+for i in range(1000):
+
+    y_pred = m * a + c
+
+    y_diff = y_pred - b
+
+    slope_m = (2/n) * np.sum(y_diff * a)
+    slope_c = (2/n) * np.sum(y_diff)
+
+    m = m - l * slope_m
+    c = c - l * slope_c
+
+print("m =", m)
+print("c =", c)
+
